@@ -1,4 +1,5 @@
-Summary:	Dropbear - a smallish ssh 2 server
+Summary:	Dropbear - a smallish ssh2 server
+Summary(pl):	Dropbear - ma³y serwer ssh2
 Name:		dropbear
 Version:	0.30
 Release:	0.1
@@ -6,6 +7,9 @@ License:	GPL
 Group:		Applications/Networking
 Source0:	http://matt.ucc.asn.au/dropbear/%{name}-%{version}.tar.bz2
 URL:		http://matt.ucc.asn.au/dropbear/dropbear.html
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	gettext-devel
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -16,6 +20,15 @@ It is currently usable though betaish, requiring work in certain areas
 before use in a production environment. If you need a small sshd to
 run on a 4 meg laptop, then sure, use it now. But test it thoroughly
 before using it somewhere important :)
+
+%description -l pl
+To jest dropbear - ma³y i przyjazny demon ssh2.
+
+Jest aktualnie u¿ywalny, choæ jest w stanie beta, wymaga pracy w
+niektórych obszarach przed u¿yciem w produkcyjnym ¶rodowisku. Je¶li
+potrzebujemy ma³ego sshd do uruchomienia na laptopie z 4MB pamiêci,
+mo¿na u¿ywaæ go ju¿ teraz. Ale przed u¿ywaniem do czego¶ wa¿niejszego
+trzeba go porz±dnie przetestowaæ :)
 
 %prep
 %setup -q
