@@ -1,3 +1,5 @@
+# TODO:
+# - SECURITY: http://securitytracker.com/alerts/2004/Jul/1010785.html
 Summary:	Dropbear - a smallish ssh2 server
 Summary(pl):	Dropbear - ma³y serwer ssh2
 Name:		dropbear
