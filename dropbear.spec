@@ -1,18 +1,17 @@
-# TODO:
-# - SECURITY: http://securitytracker.com/alerts/2004/Jul/1010785.html
 Summary:	Dropbear - a smallish ssh2 server
 Summary(pl):	Dropbear - ma³y serwer ssh2
 Name:		dropbear
-Version:	0.43
+Version:	0.44
 Release:	0.1
 License:	MIT
 Group:		Applications/Networking
 Source0:	http://matt.ucc.asn.au/dropbear/%{name}-%{version}.tar.bz2
-# Source0-md5:	4a5c338867a40059b692be36c7b69917
+# Source0-md5:	50caa74ae47e4bf5eca5ea8c231983cf
 URL:		http://matt.ucc.asn.au/dropbear/dropbear.html
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gettext-devel
+BuildRequires:	glib2-devel
+BuildRequires:	intltool
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -38,7 +37,8 @@ trzeba go porz±dnie przetestowaæ :)
 
 %build
 rm -f missing
-%{__gettextize}
+glib-gettextize --copy --force
+intltoolize --copy --force
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}
@@ -47,13 +47,19 @@ rm -f missing
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -D dropbear $RPM_BUILD_ROOT%{_sbindir}/dropbear
-install dropbearkey $RPM_BUILD_ROOT%{_sbindir}/dropbearkey
+install -d $RPM_BUILD_ROOT%{_mandir}/man8
+
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
+
+install dropbear{,key}.* $RPM_BUILD_ROOT%{_mandir}/man8
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc CHANGES README
+%doc CHANGES README SMALL TODO
+%attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_sbindir}/*
+%{_mandir}/man8/*
