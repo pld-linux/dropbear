@@ -6,6 +6,7 @@ Release:	0.1
 License:	GPL
 Group:		Applications/Networking
 Source0:	http://matt.ucc.asn.au/dropbear/%{name}-%{version}.tar.bz2
+# Source0-md5:	03603c4093a7246ea02855e3b379e05a
 URL:		http://matt.ucc.asn.au/dropbear/dropbear.html
 BuildRequires:	autoconf
 BuildRequires:	automake
