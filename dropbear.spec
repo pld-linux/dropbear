@@ -1,12 +1,12 @@
 Summary:	Dropbear - a smallish ssh2 server
 Summary(pl):	Dropbear - ma³y serwer ssh2
 Name:		dropbear
-Version:	0.41
+Version:	0.42
 Release:	0.1
 License:	MIT
 Group:		Applications/Networking
 Source0:	http://matt.ucc.asn.au/dropbear/%{name}-%{version}.tar.bz2
-# Source0-md5:	e9216fe675df029e90aafa169c3e41d1
+# Source0-md5:	cd4c38bdbd0a2665adaa700bed1677d6
 URL:		http://matt.ucc.asn.au/dropbear/dropbear.html
 BuildRequires:	autoconf
 BuildRequires:	automake
