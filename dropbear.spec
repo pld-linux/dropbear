@@ -36,7 +36,6 @@ trzeba go porz±dnie przetestowaæ :)
 %setup -q
 
 %build
-rm -f missing
 %{__glib_gettextize}
 %{__intltoolize}
 %{__aclocal}
