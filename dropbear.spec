@@ -1,5 +1,5 @@
 Summary:	Dropbear - a smallish ssh2 server
-Summary(pl):	Dropbear - ma≥y serwer ssh2
+Summary(pl.UTF-8):   Dropbear - ma≈Çy serwer ssh2
 Name:		dropbear
 Version:	0.48.1
 Release:	0.1
@@ -23,14 +23,14 @@ before use in a production environment. If you need a small sshd to
 run on a 4 meg laptop, then sure, use it now. But test it thoroughly
 before using it somewhere important :)
 
-%description -l pl
-To jest dropbear - ma≥y i przyjazny demon ssh2.
+%description -l pl.UTF-8
+To jest dropbear - ma≈Çy i przyjazny demon ssh2.
 
-Jest aktualnie uøywalny, choÊ jest w stanie beta, wymaga pracy w
-niektÛrych obszarach przed uøyciem w produkcyjnym ∂rodowisku. Je∂li
-potrzebujemy ma≥ego sshd do uruchomienia na laptopie z 4MB pamiÍci,
-moøna uøywaÊ go juø teraz. Ale przed uøywaniem do czego∂ waøniejszego
-trzeba go porz±dnie przetestowaÊ :)
+Jest aktualnie u≈ºywalny, choƒá jest w stanie beta, wymaga pracy w
+niekt√≥rych obszarach przed u≈ºyciem w produkcyjnym ≈õrodowisku. Je≈õli
+potrzebujemy ma≈Çego sshd do uruchomienia na laptopie z 4MB pamiƒôci,
+mo≈ºna u≈ºywaƒá go ju≈º teraz. Ale przed u≈ºywaniem do czego≈õ wa≈ºniejszego
+trzeba go porzƒÖdnie przetestowaƒá :)
 
 %prep
 %setup -q
