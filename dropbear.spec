@@ -1,5 +1,5 @@
 Summary:	Dropbear - a smallish ssh2 server
-Summary(pl.UTF-8):   Dropbear - mały serwer ssh2
+Summary(pl.UTF-8):	Dropbear - mały serwer ssh2
 Name:		dropbear
 Version:	0.48.1
 Release:	0.1
