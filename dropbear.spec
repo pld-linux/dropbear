@@ -1,3 +1,4 @@
+# TODO: enable pam?
 Summary:	Dropbear - a smallish ssh2 server
 Summary(pl.UTF-8):	Dropbear - mały serwer ssh2
 Name:		dropbear
@@ -10,8 +11,6 @@ Source0:	http://matt.ucc.asn.au/dropbear/releases/%{name}-%{version}.tar.gz
 URL:		http://matt.ucc.asn.au/dropbear/dropbear.html
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	glib2-devel
-BuildRequires:	intltool
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -36,8 +35,6 @@ trzeba go porządnie przetestować :)
 %setup -q
 
 %build
-%{__glib_gettextize}
-%{__intltoolize}
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}
