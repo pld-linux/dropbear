@@ -9,7 +9,7 @@ Group:		Applications/Networking
 Source0:	http://matt.ucc.asn.au/dropbear/releases/%{name}-%{version}.tar.gz
 # Source0-md5:	ca8e53a766faec831882831364568421
 URL:		http://matt.ucc.asn.au/dropbear/dropbear.html
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
