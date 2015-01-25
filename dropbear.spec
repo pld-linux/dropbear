@@ -1,4 +1,9 @@
-# TODO: enable pam?
+# TODO
+# - enable pam, see also https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=533525 (1-2 solvable, 3 needs code)
+#
+# Conditional build:
+%bcond_with	pam		# PAM authentication support
+
 Summary:	Dropbear - a smallish ssh2 server
 Summary(pl.UTF-8):	Dropbear - mały serwer ssh2
 Name:		dropbear
@@ -38,17 +43,17 @@ trzeba go porządnie przetestować :)
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}
-%configure
+%configure \
+	%{?with_pam:--enable-pam}
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_mandir}/man8
-
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install dropbear{,key}.* $RPM_BUILD_ROOT%{_mandir}/man8
+cp -p dropbear{,key}.8 $RPM_BUILD_ROOT%{_mandir}/man8
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -56,6 +61,9 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc CHANGES README SMALL TODO
-%attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_sbindir}/*
-%{_mandir}/man8/*
+%attr(755,root,root) %{_bindir}/dbclient
+%attr(755,root,root) %{_bindir}/dropbearconvert
+%attr(755,root,root) %{_bindir}/dropbearkey
+%attr(755,root,root) %{_sbindir}/dropbear
+%{_mandir}/man8/dropbear.8*
+%{_mandir}/man8/dropbearkey.8*
