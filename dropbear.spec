@@ -21,6 +21,7 @@ BuildRequires:	automake
 %{?with_system_libtom:BuildRequires:	libtomcrypt-devel >= 1.17-2}
 %{?with_pam:BuildRequires:     pam-devel}
 BuildRequires:	zlib-devel
+%{?with_system_libtom:Requires:	libtomcrypt >= 1.17-2}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
