@@ -7,15 +7,16 @@
 Summary:	Dropbear - a smallish ssh2 server
 Summary(pl.UTF-8):	Dropbear - mały serwer ssh2
 Name:		dropbear
-Version:	0.53
-Release:	0.1
+Version:	2014.66
+Release:	1
 License:	MIT
 Group:		Applications/Networking
-Source0:	http://matt.ucc.asn.au/dropbear/releases/%{name}-%{version}.tar.bz2
-# Source0-md5:	b6df80b05b6b7d03f6b232917b677d5d
-URL:		http://matt.ucc.asn.au/dropbear/dropbear.html
+Source0:	https://matt.ucc.asn.au/dropbear/releases/%{name}-%{version}.tar.bz2
+# Source0-md5:	c21a01111aa5015db038c6efdb85717d
+URL:		https://matt.ucc.asn.au/dropbear/dropbear.html
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
+%{?with_pam:BuildRequires:     pam-devel}
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -53,8 +54,6 @@ install -d $RPM_BUILD_ROOT%{_mandir}/man8
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-cp -p dropbear{,key}.8 $RPM_BUILD_ROOT%{_mandir}/man8
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -65,5 +64,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/dropbearconvert
 %attr(755,root,root) %{_bindir}/dropbearkey
 %attr(755,root,root) %{_sbindir}/dropbear
+%{_mandir}/man1/dbclient.1*
+%{_mandir}/man1/dropbearconvert.1*
+%{_mandir}/man1/dropbearkey.1*
 %{_mandir}/man8/dropbear.8*
-%{_mandir}/man8/dropbearkey.8*
