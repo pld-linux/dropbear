@@ -1,3 +1,5 @@
+PR: https://github.com/mkj/dropbear/pull/10
+
 --- dropbear-2014.66/configure.ac~	2014-10-23 16:43:38.000000000 +0300
 +++ dropbear-2014.66/configure.ac	2015-01-25 19:00:39.840166231 +0200
 @@ -660,6 +660,7 @@
