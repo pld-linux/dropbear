@@ -58,8 +58,8 @@ trzeba go porządnie przetestować :)
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_mandir}/man8
 %{__make} install \
+	INSTALL="install -p" \
 	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
