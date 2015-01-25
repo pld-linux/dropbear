@@ -3,6 +3,7 @@
 #
 # Conditional build:
 %bcond_with	pam		# PAM authentication support
+%bcond_with	system_libtom	# use system libtommath/libtomcrypt
 
 Summary:	Dropbear - a smallish ssh2 server
 Summary(pl.UTF-8):	Dropbear - mały serwer ssh2
@@ -13,9 +14,12 @@ License:	MIT
 Group:		Applications/Networking
 Source0:	https://matt.ucc.asn.au/dropbear/releases/%{name}-%{version}.tar.bz2
 # Source0-md5:	c21a01111aa5015db038c6efdb85717d
+Patch0:		system-libtom.patch
 URL:		https://matt.ucc.asn.au/dropbear/dropbear.html
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
+%{?with_system_libtom:BuildRequires:	libtomcrypt-devel}
+%{?with_system_libtom:BuildRequires:	libtommath-devel}
 %{?with_pam:BuildRequires:     pam-devel}
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -39,12 +43,17 @@ trzeba go porządnie przetestować :)
 
 %prep
 %setup -q
+%patch0 -p1
+
+%{?with_system_libtom:rm -r libtomcrypt libtommath}
 
 %build
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}
 %configure \
+	%{?with_system_libtom:--disable-bundled-libtom} \
+	%{__enable_disable_not system_libtom bundled-libtom} \
 	%{?with_pam:--enable-pam}
 %{__make}
 
