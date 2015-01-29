@@ -8,13 +8,12 @@
 Summary:	Dropbear - a smallish ssh2 server
 Summary(pl.UTF-8):	Dropbear - mały serwer ssh2
 Name:		dropbear
-Version:	2014.66
+Version:	2015.67
 Release:	1
 License:	MIT
 Group:		Applications/Networking
 Source0:	https://matt.ucc.asn.au/dropbear/releases/%{name}-%{version}.tar.bz2
-# Source0-md5:	c21a01111aa5015db038c6efdb85717d
-Patch0:		system-libtom.patch
+# Source0-md5:	e967e320344cd4bfebe321e3ab8514d6
 URL:		https://matt.ucc.asn.au/dropbear/dropbear.html
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -43,7 +42,6 @@ trzeba go porządnie przetestować :)
 
 %prep
 %setup -q
-%patch0 -p1
 
 %{?with_system_libtom:rm -r libtomcrypt libtommath}
 
