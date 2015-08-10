@@ -8,12 +8,12 @@
 Summary:	Dropbear - a smallish ssh2 server
 Summary(pl.UTF-8):	Dropbear - mały serwer ssh2
 Name:		dropbear
-Version:	2015.67
-Release:	2
+Version:	2015.68
+Release:	1
 License:	MIT
 Group:		Applications/Networking
 Source0:	https://matt.ucc.asn.au/dropbear/releases/%{name}-%{version}.tar.bz2
-# Source0-md5:	e967e320344cd4bfebe321e3ab8514d6
+# Source0-md5:	7664ac10f7cc2301c530eb80c756fc5d
 URL:		https://matt.ucc.asn.au/dropbear/dropbear.html
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -57,6 +57,7 @@ trzeba go porządnie przetestować :)
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_sysconfdir}/%{name}
 %{__make} install \
 	INSTALL="install -p" \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -67,6 +68,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc CHANGES README SMALL TODO
+%{_sysconfdir}/%{name}
 %attr(755,root,root) %{_bindir}/dbclient
 %attr(755,root,root) %{_bindir}/dropbearconvert
 %attr(755,root,root) %{_bindir}/dropbearkey
