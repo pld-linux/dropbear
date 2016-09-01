@@ -2,20 +2,20 @@
 # - enable pam, see also https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=533525 (1-2 solvable, 3 needs code)
 #
 # Conditional build:
-%bcond_with	pam		# PAM authentication support
+%bcond_with	pam		# PAM authentication support (most likely incomplete)
 %bcond_without	system_libtom	# use system libtommath/libtomcrypt
 
 Summary:	Dropbear - a smallish ssh2 server
 Summary(pl.UTF-8):	Dropbear - mały serwer ssh2
 Name:		dropbear
-Version:	2015.71
+Version:	2016.74
 Release:	1
-License:	MIT
+License:	MIT and BSD
 Group:		Applications/Networking
 Source0:	https://matt.ucc.asn.au/dropbear/releases/%{name}-%{version}.tar.bz2
-# Source0-md5:	2ccc0a2f3e37ca221db12c5af6a88137
+# Source0-md5:	9ad0172731e0f16623937804643b5bd8
 URL:		https://matt.ucc.asn.au/dropbear/dropbear.html
-BuildRequires:	autoconf >= 2.50
+BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
 %{?with_system_libtom:BuildRequires:	libtomcrypt-devel >= 1.17-2}
 %{?with_pam:BuildRequires:     pam-devel}
@@ -50,7 +50,6 @@ trzeba go porządnie przetestować :)
 %{__autoconf}
 %{__autoheader}
 %configure \
-	%{?with_system_libtom:--disable-bundled-libtom} \
 	%{__enable_disable_not system_libtom bundled-libtom} \
 	%{?with_pam:--enable-pam}
 %{__make}
@@ -67,7 +66,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc CHANGES README SMALL TODO
+%doc CHANGES LICENSE README SMALL TODO
 %{_sysconfdir}/%{name}
 %attr(755,root,root) %{_bindir}/dbclient
 %attr(755,root,root) %{_bindir}/dropbearconvert
